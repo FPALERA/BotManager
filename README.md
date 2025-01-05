@@ -16,8 +16,7 @@ A simple script for manage bot
 #### Installation
 
     ```sh
-    wget https://github.com/FPALERA/BotManager/raw/main/FPBOT.zip
-unzip FPBOT.zip
+    wget https://github.com/FPALERA/BotManager/raw/main/FPBOT.zip && unzip FPBOT.zip
     ```
       
 #### Obtenir un serveur ici
