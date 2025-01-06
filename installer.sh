@@ -183,7 +183,8 @@ fi
 (crontab -l 2>/dev/null; echo "$date_exec /root/$fichier") | crontab -
 
 echo "Le script $fichier a été créé et ajouté à cron."
-rm $nom.txt
+rm "$nom.txt"
+echo "Le fichier $nom.txt a été supprimé."
 EOF_BOT
 
 # Créer manager.sh
