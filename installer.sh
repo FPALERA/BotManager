@@ -189,6 +189,25 @@ EOF_BOT
 # Créer manager.sh
 cat << 'EOF_MANAGER' > manager.sh
 #!/bin/bash
+# Nettoyer le terminal
+clear
+
+# Fonction pour afficher le texte en couleur arc-en-ciel
+rainbow_text() {
+    local text="$1"
+    local colors=(31 32 33 34 35 36 37) # Couleurs ANSI
+    local i=0
+    for (( j=0; j<${#text}; j++ )); do
+        printf "\e[${colors[i]}m${text:j:1}\e[0m"
+        ((i=(i+1)%${#colors[@]})) # Passer à la couleur suivante
+    done
+    echo # Nouvelle ligne à la fin
+}
+
+# Afficher l'en-tête avec art ASCII en couleur arc-en-ciel
+echo "========================================"
+rainbow_text "          By FPALERA 😎 || 22658179319               "
+echo "========================================"
 
 # Fonction pour afficher les processus pm2
 afficher_pm2() {
@@ -212,7 +231,7 @@ demarrer_bot() {
 echo "Bienvenue dans le gestionnaire de bots."
 echo "1. Installer Anita"
 echo "2. Installer Levanter"
-echo "3. Afficher les processus pm2"
+echo "3. Afficher les bots"
 echo "4. Afficher les tâches cron"
 echo "5. vider les inactifs"
 echo "6. Quitter"
