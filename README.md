@@ -1,6 +1,10 @@
 # BotManager
 A simple script for manage bot
 
+# Features
+* Levanter
+* Anita v4
+
 ### 1. GET ANITA SESSION ID HERE 
 
 ### SERVER 1 
