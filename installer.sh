@@ -19,6 +19,7 @@ sudo yarn global add pm2
 
 # Demander le nom du bot
 read -p "Entrez le nom du bot : " nom
+echo $nom > nom.txt
 
 # Créer le dossier BOTWH/nom
 mkdir -p "BOTWH/$nom"
@@ -64,7 +65,8 @@ cat << 'EOF_LEVANTER' > Levanter.sh
 # Demander le nom, l'ID et le numéro
 read -p "Entrez le nom : " nom
 read -p "Entrez l'ID : " id
-read -p "Entrez le numéro : " numero
+read -p "Entrez le numéro(eg 226XXX) : " numero
+echo $nom > nom.txt
 
 # Mettre à jour et installer les paquets nécessaires
 sudo apt -y update && sudo apt -y upgrade
@@ -133,7 +135,7 @@ cat << 'EOF_BOT' > Bot.sh
 #!/bin/bash
 
 # Demande le nom
-read -p "Entrez le nom : " nom
+nom=$(cat nom.txt)
 
 # Demande la durée
 echo "Choisissez une durée :"
@@ -181,6 +183,7 @@ fi
 (crontab -l 2>/dev/null; echo "$date_exec /root/$fichier") | crontab -
 
 echo "Le script $fichier a été créé et ajouté à cron."
+rm nom.txt
 EOF_BOT
 
 # Créer manager.sh
@@ -211,7 +214,8 @@ echo "1. Installer Anita"
 echo "2. Installer Levanter"
 echo "3. Afficher les processus pm2"
 echo "4. Afficher les tâches cron"
-echo "5. Quitter"
+echo "5. vider les inactifs"
+echo "6. Quitter"
 
 # Boucle jusqu'à ce que l'utilisateur choisisse de quitter
 while true; do
@@ -243,6 +247,9 @@ while true; do
             afficher_cron
             ;;
         5)
+            pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{print $2}')
+            ;;
+        6)
             echo "Au revoir !"
 
            exit 0
@@ -256,6 +263,7 @@ EOF_MANAGER
 
 # Rendre les scripts exécutables
 chmod +x Anita.sh Levanter.sh Bot.sh manager.sh
+echo 'alias manager="bash /root/manager.sh"' >> ~/.bashrc && source ~/.bashrc
 
 echo "Les scripts Anita.sh, Levanter.sh, manager.sh et Bot.sh ont été créés et rendus exécutables."
 
