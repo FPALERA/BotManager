@@ -25,16 +25,16 @@ echo $nom > nom.txt
 mkdir -p "BOTWH/$nom"
 
 # Copier le répertoire FPBOT dans le nouveau dossier
-cp -r FPBOT "BOTWH/$nom"
+cp -r FPBOT1 "BOTWH/$nom"
 
 # Supprimer le fichier creds.json s'il existe déjà
-rm -f "BOTWH/$nom/FPBOT/session/creds.json"
+rm -f "BOTWH/$nom/FPBOT1/session/creds.json"
 
 # Écrire les informations d'identification dans creds.json
-echo "$creds" > "BOTWH/$nom/FPBOT/session/creds.json"
+echo "$creds" > "BOTWH/$nom/FPBOT1/session/creds.json"
 
 # Changer de répertoire vers BOTWH/nom/FPBOT
-cd "BOTWH/$nom/FPBOT" || exit
+cd "BOTWH/$nom/FPBOT1" || exit
 
 #Installer les dependances 
 yarn install
