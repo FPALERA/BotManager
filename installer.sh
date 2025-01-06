@@ -135,7 +135,7 @@ cat << 'EOF_BOT' > Bot.sh
 #!/bin/bash
 
 # Demande le nom
-nom=$(cat $nom.txt)
+nom=$(cat "$nom.txt")
 
 # Demande la durée
 echo "Choisissez une durée :"
