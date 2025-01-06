@@ -19,7 +19,7 @@ sudo yarn global add pm2
 
 # Demander le nom du bot
 read -p "Entrez le nom du bot : " nom
-echo $nom > $nom.txt
+echo $nom > "$nom.txt"
 
 # Créer le dossier BOTWH/nom
 mkdir -p "BOTWH/$nom"
@@ -66,7 +66,7 @@ cat << 'EOF_LEVANTER' > Levanter.sh
 read -p "Entrez le nom : " nom
 read -p "Entrez l'ID : " id
 read -p "Entrez le numéro(eg 226XXX) : " numero
-echo $nom > $nom.txt
+echo $nom > "$nom.txt"
 
 # Mettre à jour et installer les paquets nécessaires
 sudo apt -y update && sudo apt -y upgrade
