@@ -19,7 +19,7 @@ A simple script for manage bot
 
 #### Installation
 
-    git clone https://github.com/FPALERA/BotManager/ FPBOT1 && cd FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh && ./manager.sh
+    git clone https://github.com/FPALERA/BotManager/ FPBOT1 && cd FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh && echo 'alias manager="bash /root/manager.sh"' >> ~/.bashrc && source ~/.bashrc && manager
       
 #### Obtenir un serveur ici
 <a href="https://www.digitalocean.com/?refcode=1ddbfbb00962&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" /></a>
