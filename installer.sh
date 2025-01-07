@@ -241,7 +241,7 @@ echo "8. Quitter"
 
 # Boucle jusqu'à ce que l'utilisateur choisisse de quitter
 while true; do
-    read -p "Choisissez une option (1-5) : " choix
+    read -p "Choisissez une option (1-8) : " choix
 
     case $choix in
         1)
