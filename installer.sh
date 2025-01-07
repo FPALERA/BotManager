@@ -269,7 +269,7 @@ while true; do
             ;;
         6)
             rm manager.sh && rm Anita.sh && rm Levanter.sh && rm Bot.sh && rm installer.sh && rm -rf FPBOT1
-            git clone https://github.com/FPALERA/BotManager/ FPBOT1 && cd FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh && ./manager.sh
+            git clone https://github.com/FPALERA/BotManager/ FPBOT1 && cd FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh
             echo "Le script a été mis à jour !"
             ;;
         7)
