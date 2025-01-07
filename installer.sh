@@ -288,6 +288,12 @@ while true; do
 done
 EOF_MANAGER
 
+# Créer menu.sh
+cat << 'EOF_MENU' > menu.sh
+#!/bin/bash
+echo 'alias manager="bash /root/manager.sh"' >> ~/.bashrc && source ~/.bashrc && manager
+EOF_MENU
+
 # Rendre les scripts exécutables
 chmod +x Anita.sh Levanter.sh Bot.sh manager.sh
 
