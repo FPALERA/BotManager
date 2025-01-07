@@ -19,7 +19,7 @@ sudo yarn global add pm2
 
 # Demander le nom du bot
 read -p "Entrez le nom du bot : " nom
-echo $nom > "$nom.txt"
+echo "$nom" > nom.txt
 
 # Créer le dossier BOTWH/nom
 mkdir -p "BOTWH/$nom"
@@ -66,7 +66,7 @@ cat << 'EOF_LEVANTER' > Levanter.sh
 read -p "Entrez le nom : " nom
 read -p "Entrez l'ID : " id
 read -p "Entrez le numéro(eg 226XXX) : " numero
-echo $nom > "$nom.txt"
+echo "$nom" > nom.txt
 
 # Mettre à jour et installer les paquets nécessaires
 sudo apt -y update && sudo apt -y upgrade
@@ -135,7 +135,7 @@ cat << 'EOF_BOT' > Bot.sh
 #!/bin/bash
 
 # Demande le nom
-nom=$(cat "$nom.txt")
+nom=$(cat nom.txt)
 
 # Demande la durée
 echo "Choisissez une durée :"
@@ -183,7 +183,7 @@ fi
 (crontab -l 2>/dev/null; echo "$date_exec /root/$fichier") | crontab -
 
 echo "Le script $fichier a été créé et ajouté à cron."
-rm "$nom.txt"
+rm nom.txt
 echo "Le fichier $nom.txt a été supprimé."
 EOF_BOT
 
