@@ -235,7 +235,9 @@ echo "2. Installer Levanter"
 echo "3. Afficher les bots"
 echo "4. Afficher les tâches cron"
 echo "5. vider les inactifs"
-echo "6. Quitter"
+echo "6. Mettre à jour le script"
+echo "7. Desinstaller le script"
+echo "8. Quitter"
 
 # Boucle jusqu'à ce que l'utilisateur choisisse de quitter
 while true; do
@@ -266,6 +268,15 @@ while true; do
             pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{print $2}')
             ;;
         6)
+            rm manager.sh && rm Anita.sh && rm Levanter.sh && rm Bot.sh && rm installer.sh && rm -rf FPBOT1
+            git clone https://github.com/FPALERA/BotManager/ FPBOT1 && cd FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh && ./manager.sh
+            echo "Le script a été mis à jour !"
+            ;;
+        7)
+            rm manager.sh && rm Anita.sh && rm Levanter.sh && rm Bot.sh && rm installer.sh && rm -rf FPBOT1
+            echo "Au revoir !"
+            ;;
+        8)
             echo "Au revoir !"
 
            exit 0
