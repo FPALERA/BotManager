@@ -290,7 +290,6 @@ EOF_MANAGER
 
 # Rendre les scripts exécutables
 chmod +x Anita.sh Levanter.sh Bot.sh manager.sh
-echo 'alias manager="bash /root/manager.sh"' >> ~/.bashrc && source ~/.bashrc
 
 echo "Les scripts Anita.sh, Levanter.sh, manager.sh et Bot.sh ont été créés et rendus exécutables."
 
