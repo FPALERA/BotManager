@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Créer Anita.sh
-cat << 'EOF_ANITA' > Anita.sh
+cat << 'EOF_ANITA' > /root/Anita.sh
 #!/bin/bash
 # Demander les informations d'identification
 read -p "Entrez les informations d'identification : " creds
@@ -22,19 +22,19 @@ read -p "Entrez le nom du bot : " nom
 echo "$nom" > nom.txt
 
 # Créer le dossier BOTWH/nom
-mkdir -p "BOTWH/$nom"
+mkdir -p "/root/BOTWH/$nom"
 
 # Copier le répertoire FPBOT dans le nouveau dossier
-cp -r FPBOT1 "BOTWH/$nom"
+cp -r FPBOT1 "/root/BOTWH/$nom"
 
 # Supprimer le fichier creds.json s'il existe déjà
-rm -f "BOTWH/$nom/FPBOT1/FPBOT/session/creds.json"
+rm -f "/root/BOTWH/$nom/FPBOT1/FPBOT/session/creds.json"
 
 # Écrire les informations d'identification dans creds.json
-echo "$creds" > "BOTWH/$nom/FPBOT1/FPBOT/session/creds.json"
+echo "$creds" > "/root/BOTWH/$nom/FPBOT1/FPBOT/session/creds.json"
 
 # Changer de répertoire vers BOTWH/nom/FPBOT
-cd "BOTWH/$nom/FPBOT1/FPBOT" || exit
+cd "/root/BOTWH/$nom/FPBOT1/FPBOT" || exit
 
 #Installer les dependances 
 yarn install
@@ -59,7 +59,7 @@ cd /root || exit
 EOF_ANITA
 
 # Créer Levanter.sh
-cat << 'EOF_LEVANTER' > Levanter.sh
+cat << 'EOF_LEVANTER' > /root/Levanter.sh
 #!/bin/bash
 
 # Demander le nom, l'ID et le numéro
@@ -80,8 +80,8 @@ sudo npm install -g yarn
 sudo yarn global add pm2
 
 # Créer le dossier et cloner le dépôt
-mkdir Levanter
-cd Levanter || exit
+mkdir /root/Levanter
+cd /root/Levanter || exit
 git clone https://github.com/lyfe00011/levanter "$nom"
 cd "$nom" || exit
 
@@ -131,7 +131,7 @@ cd /root || exit
 EOF_LEVANTER
 
 # Créer Bot.sh
-cat << 'EOF_BOT' > Bot.sh
+cat << 'EOF_BOT' > /root/Bot.sh
 #!/bin/bash
 
 # Demande le nom
@@ -188,7 +188,7 @@ echo "Le fichier $nom.txt a été supprimé."
 EOF_BOT
 
 # Créer manager.sh
-cat << 'EOF_MANAGER' > manager.sh
+cat << 'EOF_MANAGER' > /root/manager.sh
 #!/bin/bash
 # Nettoyer le terminal
 clear
@@ -225,7 +225,7 @@ afficher_cron() {
 # Fonction pour démarrer Bot.sh
 demarrer_bot() {
     # Passer le nom en argument à Bot.sh
-    ./Bot.sh "$1"
+    bash /root/Bot.sh "$1"
 }
 
 # Menu principal
@@ -247,14 +247,14 @@ while true; do
         1)
             echo "Installation d'Anita..."
             # Appeler le script Anita.sh
-            ./Anita.sh
+            bash /root/Anita.sh
             # Démarrer Bot.sh avec le nom
             demarrer_bot "$nom"
             ;;
         2)
             echo "Installation de Levanter..."
             # Appeler le script Levanter.sh
-            ./Levanter.sh
+            bash /root/Levanter.sh
             # Démarrer Bot.sh avec le nom
             demarrer_bot "$nom"
             ;;
@@ -268,12 +268,12 @@ while true; do
             pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{print $2}')
             ;;
         6)
-            rm manager.sh && rm Anita.sh && rm Levanter.sh && rm Bot.sh && rm installer.sh && rm -rf FPBOT1
-            git clone https://github.com/FPALERA/BotManager/ FPBOT1 && cd FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
+            git clone https://github.com/FPALERA/BotManager/ /root/FPBOT1 && cd /root/FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh
             echo "Le script a été mis à jour !"
             ;;
         7)
-            rm manager.sh && rm Anita.sh && rm Levanter.sh && rm Bot.sh && rm installer.sh && rm -rf FPBOT1
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
             echo "Au revoir !"
             ;;
         8)
@@ -289,13 +289,13 @@ done
 EOF_MANAGER
 
 # Créer menu.sh
-cat << 'EOF_MENU' > menu.sh
+cat << 'EOF_MENU' > /root/menu.sh
 #!/bin/bash
 echo 'alias manager="bash /root/manager.sh"' >> ~/.bashrc && source ~/.bashrc && manager
 EOF_MENU
 
 # Rendre les scripts exécutables
-chmod +x Anita.sh Levanter.sh Bot.sh manager.sh
+chmod +x /root/Anita.sh /root/Levanter.sh /root/Bot.sh /root/manager.sh
 
-echo "Les scripts Anita.sh, Levanter.sh, manager.sh et Bot.sh ont été créés et rendus exécutables."
+echo "Le gestionnaire de bots a été installé avec succès."
 
