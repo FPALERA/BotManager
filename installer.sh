@@ -21,6 +21,9 @@ sudo yarn global add pm2
 read -p "Entrez le nom du bot : " nom
 echo "$nom" > nom.txt
 
+# supprimer si existe
+rm -rf "/root/BOTWH/$nom"
+
 # Créer le dossier BOTWH/nom
 mkdir -p "/root/BOTWH/$nom"
 
@@ -82,6 +85,7 @@ sudo yarn global add pm2
 # Créer le dossier et cloner le dépôt
 mkdir /root/Levanter
 cd /root/Levanter || exit
+rm -rf "$nom"
 git clone https://github.com/lyfe00011/levanter "$nom"
 cd "$nom" || exit
 
