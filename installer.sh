@@ -3,6 +3,11 @@
 # Créer Anita.sh
 cat << 'EOF_ANITA' > /root/Anita.sh
 #!/bin/bash
+
+# Demander le nom du bot
+read -p "Entrez le nom du bot : " nom
+echo "$nom" > nom.txt
+
 # Demander les informations d'identification
 read -p "Entrez les informations d'identification : " creds
 
@@ -16,10 +21,6 @@ sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
 sudo npm install -g yarn
 sudo yarn global add pm2
-
-# Demander le nom du bot
-read -p "Entrez le nom du bot : " nom
-echo "$nom" > nom.txt
 
 # supprimer si existe
 rm -rf "/root/BOTWH/$nom"
