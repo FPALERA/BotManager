@@ -272,7 +272,7 @@ while true; do
             pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{print $2}')
             ;;
         6)
-            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm /root/menu.sh && rm -rf /root/FPBOT1
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
             git clone https://github.com/FPALERA/BotManager/ /root/FPBOT1 && cd /root/FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh
             echo "Le script a été mis à jour !"
             ;;
@@ -292,16 +292,8 @@ while true; do
 done
 EOF_MANAGER
 
-# Créer menu.sh
-cat << 'EOF_MENU' > /root/menu.sh
-#!/bin/bash
-echo 'alias manager="bash /root/manager.sh"' >> ~/.bashrc && source ~/.bashrc
-manager
-EOF_MENU
-
 # Rendre les scripts exécutables
-chmod +x /root/Anita.sh /root/Levanter.sh /root/Bot.sh /root/manager.sh /root/menu.sh
-bash /root/menu.sh
+chmod +x /root/Anita.sh /root/Levanter.sh /root/Bot.sh /root/manager.sh 
 
 echo "Le gestionnaire de bots a été installé avec succès."
 
