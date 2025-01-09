@@ -19,7 +19,7 @@ A simple script for manage bot
 
 #### Installation
 
-    git clone https://github.com/FPALERA/BotManager/ /root/FPBOT1 && cd /root/FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh
+    git clone https://github.com/FPALERA/BotManager/ /root/FPBOT1 && cd /root/FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh && echo 'alias manager="bash /root/manager.sh"' >> ~/.bashrc && source ~/.bashrc
             
       
 #### Obtenir un serveur ici
