@@ -299,7 +299,8 @@ echo 'alias manager="bash /root/manager.sh"' >> ~/.bashrc && source ~/.bashrc &&
 EOF_MENU
 
 # Rendre les scripts exécutables
-chmod +x /root/Anita.sh /root/Levanter.sh /root/Bot.sh /root/manager.sh
+chmod +x /root/Anita.sh /root/Levanter.sh /root/Bot.sh /root/manager.sh /root/menu.sh
+bash /root/menu.sh
 
 echo "Le gestionnaire de bots a été installé avec succès."
 
