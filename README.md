@@ -9,7 +9,7 @@ A simple script for manage bot
 
 ### SERVER 1 
  
-<a href="https://anita-v4-pairing.onrender.com/pair"><img src="https://img.shields.io/badge/SESSION_ID-blue" alt="Click Here to Get Pair-Code" width="110"></a>   
+<a href="https://anita-v4-pairing-wumi.onrender.com"><img src="https://img.shields.io/badge/SESSION_ID-blue" alt="Click Here to Get Pair-Code" width="110"></a>   
 
 ### 2. GET LEVANTER SESSION ID HERE 
 
