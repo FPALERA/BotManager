@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# Créer Anita.sh
-cat << 'EOF_ANITA' > /root/Anita.sh
-#!/bin/bash
-
-# Demander le nom du bot
-read -p "Entrez le nom du bot : " nom
-echo "$nom" > nom.txt
-
-# Demander les informations d'identification
-read -p "Entrez les informations d'identification : " creds
-
 # Mettre à jour et installer les paquets nécessaires
 sudo apt -y update && sudo apt -y upgrade
 sudo apt -y install git ffmpeg curl
@@ -21,6 +10,17 @@ sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
 sudo npm install -g yarn
 sudo yarn global add pm2
+
+# Créer Anita.sh
+cat << 'EOF_ANITA' > /root/Anita.sh
+#!/bin/bash
+
+# Demander le nom du bot
+read -p "Entrez le nom du bot : " nom
+echo "$nom" > nom.txt
+
+# Demander les informations d'identification
+read -p "Entrez les informations d'identification : " creds
 
 # supprimer si existe
 rm -rf "/root/BOTWH/$nom"
@@ -71,17 +71,6 @@ read -p "Entrez le nom : " nom
 read -p "Entrez l'ID : " id
 read -p "Entrez le numéro(eg 226XXX) : " numero
 echo "$nom" > nom.txt
-
-# Mettre à jour et installer les paquets nécessaires
-sudo apt -y update && sudo apt -y upgrade
-sudo apt -y install git ffmpeg curl
-
-# Installer Node.js
-curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
-sudo -E bash nodesource_setup.sh
-sudo apt-get install -y nodejs
-sudo npm install -g yarn
-sudo yarn global add pm2
 
 # Créer le dossier et cloner le dépôt
 mkdir /root/Levanter
@@ -239,10 +228,11 @@ echo "1. Installer Anita"
 echo "2. Installer Levanter"
 echo "3. Afficher les bots"
 echo "4. Afficher les tâches cron"
-echo "5. vider les inactifs"
-echo "6. Mettre à jour le script"
-echo "7. Desinstaller le script"
-echo "8. Quitter"
+echo "5. Supprimer un bot"
+echo "6. Vider les inactifs"
+echo "7. Mettre à jour le script"
+echo "8. Desinstaller le script"
+echo "9. Quitter"
 
 # Boucle jusqu'à ce que l'utilisateur choisisse de quitter
 while true; do
@@ -270,20 +260,30 @@ while true; do
             afficher_cron
             ;;
         5)
-            pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{print $2}')
+            # Demander le nom du bot
+            read -p "Entrez le nom du bot : " nom
+            rm -rf /root/Levanter/$nom
+            rm -rf /root/BOTWH/$nom
+            pm2 stop "$nom"
+            pm2 delete "$nom"
+            pm2 save
+            rm "stop_$nom.sh"
+            crontab -l | grep -v "$nom" | crontab -
             ;;
         6)
-            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
-            git clone https://github.com/FPALERA/BotManager/ /root/FPBOT1 && cd /root/FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh
-            echo "Le script a été mis à jour !"
+            pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{>
             ;;
         7)
-            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
-            echo "Au revoir !"
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Lev>
+            git clone https://github.com/FPALERA/BotManager/ /root/F>
+            echo "Le script a été mis à jour !"
             ;;
         8)
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Lev>
             echo "Au revoir !"
-
+            ;;
+        9)
+            echo "Au revoir !"
            exit 0
             ;;
         *)
