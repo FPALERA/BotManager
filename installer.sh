@@ -271,19 +271,20 @@ while true; do
             crontab -l | grep -v "$nom" | crontab -
             ;;
         6)
-            pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{>
+            pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{print $2}')
             ;;
         7)
-            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Lev>
-            git clone https://github.com/FPALERA/BotManager/ /root/F>
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
+            git clone https://github.com/FPALERA/BotManager/ /root/FPBOT1 && cd /root/FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh
             echo "Le script a été mis à jour !"
             ;;
         8)
-            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Lev>
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
             echo "Au revoir !"
             ;;
         9)
             echo "Au revoir !"
+
            exit 0
             ;;
         *)
