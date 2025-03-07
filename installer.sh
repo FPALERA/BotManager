@@ -7,11 +7,6 @@ sudo apt -y install git ffmpeg curl
 # Installer Node.js
 curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm install 22
-nvm use 22
 sudo apt-get install -y nodejs
 sudo npm install -g yarn
 sudo yarn global add pm2
