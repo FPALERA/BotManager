@@ -274,12 +274,12 @@ while true; do
             pm2 delete --silent $(pm2 list | grep 'stopped' | awk '{print $2}')
             ;;
         7)
-            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1 && rm -rf /root/FPBOT.zip
             git clone https://github.com/FPALERA/BotManager/ /root/FPBOT1 && cd /root/FPBOT1 && unzip FPBOT.zip && cp installer.sh /root && cd /root && chmod +x installer.sh && ./installer.sh
             echo "Le script a été mis à jour !"
             ;;
         8)
-            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1
+            rm /root/manager.sh && rm /root/Anita.sh && rm /root/Levanter.sh && rm /root/Bot.sh && rm /root/installer.sh && rm -rf /root/FPBOT1 && rm -rf /root/FPBOT.zip
             echo "Au revoir !"
             ;;
         9)
