@@ -4,6 +4,8 @@ A simple script for manage bot
 # Features
 * Levanter
 * Anita v4
+* SubZero-md
+* Malvin-xd
 
 ### 1. GET ANITA SESSION ID HERE 
 
@@ -17,11 +19,17 @@ A simple script for manage bot
  
 <a href="https://qr-hazel-alpha.vercel.app/"><img src="https://img.shields.io/badge/SESSION_ID-blue" alt="Click Here to Get Pair-Code" width="110"></a>
 
-### 2. GET SubZero-md SESSION ID HERE 
+### 3. GET SubZero-md SESSION ID HERE 
 
 ### SERVER 1 
  
 <a href="https://subzero-session-id.onrender.com/pair"><img src="https://img.shields.io/badge/SESSION_ID-blue" alt="Click Here to Get Pair-Code" width="110"></a> 
+
+### 4. GET Malvin-XD SESSION ID HERE 
+
+### SERVER 1 
+ 
+<a href="https://malvin-pair-code-xzcb.onrender.com/"><img src="https://img.shields.io/badge/SESSION_ID-blue" alt="Click Here to Get Pair-Code" width="110"></a> 
 
 
 #### Installation
