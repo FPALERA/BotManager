@@ -15,7 +15,14 @@ A simple script for manage bot
 
 ### SERVER 1 
  
-<a href="https://qr-hazel-alpha.vercel.app/"><img src="https://img.shields.io/badge/SESSION_ID-blue" alt="Click Here to Get Pair-Code" width="110"></a> 
+<a href="https://qr-hazel-alpha.vercel.app/"><img src="https://img.shields.io/badge/SESSION_ID-blue" alt="Click Here to Get Pair-Code" width="110"></a>
+
+### 2. GET SubZero-md SESSION ID HERE 
+
+### SERVER 1 
+ 
+<a href="https://subzero-session-id.onrender.com/pair"><img src="https://img.shields.io/badge/SESSION_ID-blue" alt="Click Here to Get Pair-Code" width="110"></a> 
+
 
 #### Installation
 
