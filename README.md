@@ -48,7 +48,7 @@ A simple script for manage bot
 <a href="https://www.digitalocean.com/?refcode=1ddbfbb00962&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" /></a>
 
 #### CONTACTS
-<a href="https://wa.me/22658179319"><img src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg" alt="Whatsapp" width="50" height="50"/></a>
+<a href="https://wa.me/22658179319"><img src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg" alt="Whatsapp"/></a><br>
 <a href="https://t.me/FPALERA"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTabR5clmX2Zr-bKFnq8j1k1_JkJbr8JAdW3A&s" alt="Telegram" /></a>
 
 #### ```FPALERA PROFILE VIEWS 🧚```
