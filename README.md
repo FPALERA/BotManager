@@ -1,5 +1,5 @@
 # BotManager
-A simple script for manage bot
+A simple script for bot management
 
 # Features
 * Levanter
